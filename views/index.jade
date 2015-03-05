@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to MarkLogic Node.js API
+
+  // Wrapper
+  #wrapper
+     
+      // FOOD INFO
+      #foodInfo
+          h2 Food Info
+          p
+              strong Name:
+              |  <span id='foodInfoName'></span>
+              br
+              strong Price:
+              |  <span id='foodInfoPrice'></span>
+              br
+              strong Popularity:
+              |  <span id='foodInfoPop'></span>
+      //  /FOOD INFO
+
+
+      // FOOD LIST
+      h2 Food List
+      #foodList
+          table
+              thead
+                  th FoodName
+                  th Price
+                  th Delete?
+              tbody
+      //  /FOOD LIST
+
+      // ADD FOOD
+      h2 Add Food
+      #addFood
+          fieldSet
+              input#inputFoodName(type='text', placeholder='Food name')
+              input#inputFoodPrice(type='text', placeholder='price')
+              input#inputFoodPop(type='text', placeholder='popularity')
+              br
+              button#btnAddFood Add Food
+      //  /ADD FOOD
+ 
+      // FOOD SEARCH
+      #searchFood
+          h2 Food Search
+              fieldSet
+                  input#inputFoodSearch(type='text', placeholder='onion, tacos, SF')
+                  br
+                  button#btnSearchFood Search Food
+          strong Search Result:
+          p
+      //  /FOOD SEARCH
+  
+  //  /WRAPPER
