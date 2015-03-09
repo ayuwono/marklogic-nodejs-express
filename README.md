@@ -15,7 +15,7 @@ Type npm start
 ## Database Connection Config
 
 Create env.js that contains database connection information from MarkLogic Server. Here is the example of env.js file.
-'''
+```
 var dev =  {
   database: "Documents",     // Each connection can specify its own database
   host: "localhost",         // The host against which queries will be run
@@ -28,34 +28,34 @@ var dev =  {
 module.exports = {
   connection: dev
 }
-'''
+```
 
 ## MarkLogic connection on app.js
 
 Modify app.js and add these variables:
-
+```
 // Connect to MarkLogic DB
 var marklogic = require('marklogic');
 var conn = require('./env.js').connection;
 var db = marklogic.createDatabaseClient(conn);
 var q = marklogic.queryBuilder;
 var foods = require('./routes/foods');
-
+```
 These lines tell our app that we want to connect to MarkLogic Server.
 
 Look at the lines that look like this:
-
+```
 app.use('/', routes);
 app.use('/users', users);
-
+```
 For this tutorial, we want to add a new router that the app will use, the new code will look like:
-
+```
 app.use('/', routes);
 app.use('/users', users);
 app.use('/foods', foods);
-
+```
 Above these lines, add these following codes:
-
+```
 // Make ML db accessible to our router
 app.use(function(req, res, next){
   req.db = db;
@@ -67,13 +67,13 @@ app.use(function(req, res, next){
   req.q = q;
   next();
 });
-
+```
 These lines will make MarkLogic db and queryBuilder variables accessible to our router.
 
 ## MarkLogic Node.js Client API on router/foods.js router
 
 In this router file, we will use MarkLogic Node.js Client API to talk with the MarkLogic database. One example of the call is:
-
+```
 /* GET foodList. */
 router.get('/foodlist', function(req, res, next) {
   var db = req.db;
@@ -88,9 +88,9 @@ router.get('/foodlist', function(req, res, next) {
     res.json(records);
   });
 });
-
+```
 This code is using the search capability to return all documents that belong to a specific collection.
-
+```
 /* POST new food. */
 router.post('/addfood', function(req, res, next) {
   var db = req.db;
@@ -114,7 +114,7 @@ router.post('/addfood', function(req, res, next) {
     );
   });
 });
-
+```
 This code is using the CRUD capability to write the JSON content to the database.
 
 For more information on how to use the API, visit our documentation page: http://docs.marklogic.com/jsdoc/index.html
@@ -124,7 +124,7 @@ For more information on how to use the API, visit our documentation page: http:/
 This file contains all UIs on the app. Functions to do GET, POST, and DELETE requests are written here. This file is also used to render the html.
 
 One example of the function:
-
+```
 // Show Food Info
 function showFoodInfo(event) {
 
@@ -141,5 +141,5 @@ function showFoodInfo(event) {
     $('#foodInfoPop').text(foodInfo.content.popularity);
   });
 };
-
+```
 The tagged variable is controlled by views/index.jade
