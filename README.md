@@ -15,7 +15,7 @@ Type npm start
 ## Database Connection Config
 
 Create env.js that contains database connection information from MarkLogic Server. Here is the example of env.js file.
-
+'''
 var dev =  {
   database: "Documents",     // Each connection can specify its own database
   host: "localhost",         // The host against which queries will be run
@@ -28,6 +28,7 @@ var dev =  {
 module.exports = {
   connection: dev
 }
+'''
 
 ## MarkLogic connection on app.js
 
