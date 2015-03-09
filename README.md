@@ -2,11 +2,31 @@
 
 ## Setup express and a new project
 
-npm install express
-
-npm install express-generator
-
-express yourprojectname
+- npm install express
+- npm install express-generator
+- express yourprojectname
+- modify your package.json so it will include marklogic. It should look like this:
+```
+{
+  "name": "ml-node-express",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.10.2",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.1.1",
+    "express": "~4.11.1",
+    "jade": "~1.9.1",
+    "morgan": "~1.5.1",
+    "serve-favicon": "~2.2.0",
+    "marklogic": "*"
+  }
+}
+```
+- npm install
 
 ## Starting up your application
 
