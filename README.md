@@ -1,9 +1,10 @@
 # ml-node-express
 
-This simple REST web application is to show the integration between MarkLogic, MarkLogic Node.js Client API, and express. The appllication shows on how to make a client connection with MarkLogic Server, document CRUD operation, and search query.
+This simple REST web application is to show the integration between MarkLogic, MarkLogic Node.js Client API, and express. The appllication shows on how to make a client connection with MarkLogic Server, document CRUD operation, and search query. We assume that you do git clone under your project directory.
 
 ## Setup express and a new project
 
+- cd project_directory
 - npm install express
 - npm install express-generator
 - express yourprojectname
@@ -33,7 +34,7 @@ This simple REST web application is to show the integration between MarkLogic, M
 
 ## Starting up your application
 
-Type npm start
+Type npm start on your project directory.
 
 ## Database Connection Config
 
