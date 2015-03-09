@@ -36,6 +36,23 @@ This simple REST web application is to show the integration between MarkLogic, M
 
 Type npm start on your project directory.
 
+On your web browser, go to: http://localhost:3000
+
+## Including global.js on your views/layout.jade
+
+global.js is the file where you mainly put all the UI, logic, and functions. Declara global.js on layout.jade. The modified layout.jade should look like this:
+```
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/javascripts/global.js')
+```    
+
 ## Database Connection Config
 
 Create env.js that contains database connection information from MarkLogic Server. Here is the example of env.js file.
@@ -167,3 +184,67 @@ function showFoodInfo(event) {
 };
 ```
 The tagged variable is controlled by views/index.jade
+
+## Positioning your UI elements with jade
+
+To position your UI elements, you can use jade, My index.jade for this tutorial looks like this:
+```
+extends layout
+
+block content
+  h1= title
+  p Welcome to MarkLogic Node.js API
+
+  // Wrapper
+  #wrapper
+
+      // FOOD INFO
+      #foodInfo
+          h2 Food Info
+          p
+              strong Name:
+              |  <span id='foodInfoName'></span>
+              br
+              strong Price:
+              |  <span id='foodInfoPrice'></span>
+              br
+              strong Popularity:
+              |  <span id='foodInfoPop'></span>
+      //  /FOOD INFO
+
+
+      // FOOD LIST
+      h2 Food List
+      #foodList
+          table
+              thead
+                  th FoodName
+                  th Price
+                  th Delete?
+              tbody
+      //  /FOOD LIST
+
+      // ADD FOOD
+      h2 Add Food
+      #addFood
+          fieldSet
+              input#inputFoodName(type='text', placeholder='Food name')
+              input#inputFoodPrice(type='text', placeholder='price')
+              input#inputFoodPop(type='text', placeholder='popularity')
+              br
+              button#btnAddFood Add Food
+      //  /ADD FOOD
+
+      // FOOD SEARCH
+      #searchFood
+          h2 Food Search
+              fieldSet
+                  input#inputFoodSearch(type='text', placeholder='onion, tacos, SF')
+                  br
+                  button#btnSearchFood Search Food
+          strong Search Result:
+          p
+      //  /FOOD SEARCH
+
+  //  /WRAPPER
+```
