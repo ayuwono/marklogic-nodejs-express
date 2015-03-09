@@ -1,6 +1,6 @@
 # ml-node-express
 
-Setup express and a new project
+## Setup express and a new project
 
 npm install express
 
@@ -8,11 +8,11 @@ npm install express-generator
 
 express yourprojectname
 
-Starting up your application
+## Starting up your application
 
 Type npm start
 
-Database Connection Config
+## Database Connection Config
 
 Create env.js that contains database connection information from MarkLogic Server. Here is the example of env.js file.
 
@@ -29,7 +29,7 @@ module.exports = {
   connection: dev
 }
 
-MarkLogic connection on app.js
+## MarkLogic connection on app.js
 
 Modify app.js and add these variables:
 
@@ -69,7 +69,7 @@ app.use(function(req, res, next){
 
 These lines will make MarkLogic db and queryBuilder variables accessible to our router.
 
-MarkLogic Node.js Client API on router/foods.js router
+## MarkLogic Node.js Client API on router/foods.js router
 
 In this router file, we will use MarkLogic Node.js Client API to talk with the MarkLogic database. One example of the call is:
 
@@ -118,7 +118,7 @@ This code is using the CRUD capability to write the JSON content to the database
 
 For more information on how to use the API, visit our documentation page: http://docs.marklogic.com/jsdoc/index.html
 
-User interaction on public/javascripts/global.js
+## User interaction on public/javascripts/global.js
 
 This file contains all UIs on the app. Functions to do GET, POST, and DELETE requests are written here. This file is also used to render the html.
 
