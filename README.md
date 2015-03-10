@@ -40,7 +40,7 @@ On your web browser, go to: http://localhost:3000
 
 ## Including global.js on your views/layout.jade
 
-global.js is the file where you mainly put all the UI, logic, and functions. Declara global.js on layout.jade. The modified layout.jade should look like this:
+global.js is the file where you mainly put all the UI, logic, and functions. Declare global.js on layout.jade. The modified layout.jade should look like this:
 ```
 doctype html
 html
