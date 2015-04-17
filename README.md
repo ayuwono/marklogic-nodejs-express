@@ -2,6 +2,13 @@
 
 This simple REST web application is to show the integration between MarkLogic, MarkLogic Node.js Client API, and express. The appllication shows on how to make a client connection with MarkLogic Server, document CRUD operation, and search query. We assume that you do git clone under your project directory.
 
+## How to install and to run the sample application
+- git clone https://github.com/ayuwono/ml-node-express.git myproject
+- cd myproject
+- npm install
+- npm start
+- On your browser, go to http://localhost:3000
+
 ## Setup express and a new project
 
 - cd project_directory
